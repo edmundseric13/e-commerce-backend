@@ -7,8 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "watch": "nodemon server.js",
-    "schema": "sequelize db:migrate",
-    "seed": "node seeds/index.js"
+    "schema": "psql -U postgres -f db/schema.sql",
+    "migrate": "sequelize db:migrate",
+    "seed": "node seeds/index.js",
+    "db:reset": "npm run schema && npm run migrate && npm run seed"
   },
   "repository": {
     "type": "git",
